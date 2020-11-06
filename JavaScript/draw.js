@@ -6,12 +6,6 @@
 
 
 
-
-
-//set up canvas
-
-
-
 function setup() {
 
   slider = createSlider(0, 254, 0)
@@ -32,9 +26,13 @@ function setup() {
 $(document).ready(function(){
 eraseToggle = 0 // will toggle between 0 and 1 to determine if erase is enabled or disabled.
 
-
 //creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
 $(".blank").click(function(){
+  createCanvas(window.innerWidth - 20, 920);
+  background(102)
+})
+
+$(canvas).dblclick(function(){
   createCanvas(window.innerWidth - 20, 920);
   background(102)
 })
@@ -50,7 +48,7 @@ $(".eraser").click(function(){
 
 })
 })
-//function for drawing and animating on the canvas
+
 function draw() {
       // rgb color slider variables
       var r = slider.value(),

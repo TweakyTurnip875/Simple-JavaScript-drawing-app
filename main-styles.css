@@ -10,6 +10,8 @@ body {
     padding-top:20px;
     display:flex;
     justify-content:space-between;
+  background-color:#65798f;
+
   }
   .blank, .eraser {
     outline:none;
@@ -40,37 +42,18 @@ body {
     padding-left:15px;
   }
   
-  .main-wrapper {
-  background-color:#65798f;
-  }
-  .hide {
-      outline:none;
-    font-size: 15px;
-    border:solid black;
-    border-radius:5px;
-    background-color:#686e4e;
-    color: white;
-    padding:10px;
   
-    font-family: 'Roboto Slab', serif;
-    transition:0.5s;
-  
-  }
-  .hide:hover {
-    border:solid white;
-    background-color:black;
-  }
   .colors-wrap {
     width: 3px;
   }
-  .hey-wrap {
+  .test-wrap {
     font-family: 'Roboto Slab', serif;
       display:flex;
     justify-content:space-between;
     padding-top:5px;
     padding-left:140px;
     font-size: 13px;
-  
+    
   }
   .color-display {
     font-family: 'Roboto Slab', serif;
@@ -95,3 +78,9 @@ body {
   padding-left: 200px;
     padding-top:29px
   }
+  canvas {
+    cursor: crosshair;
+  }
+.red,.green,.blue,.toggle,.width-wrap {
+  color:white;
+}
