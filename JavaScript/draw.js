@@ -32,7 +32,7 @@ $(".blank").click(function(){
   background(102)
 })
 
-$(canvas).dblclick(function(){
+$(document).dblclick(function(){
   createCanvas(window.innerWidth - 20, 920);
   background(102)
 })
