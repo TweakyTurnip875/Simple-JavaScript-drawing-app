@@ -43,6 +43,7 @@ $(".eraser").click(function(){
     $(".toggle").text("off")
   } else {
   $(".toggle").text("on")
+    
   eraseToggle++
   }
 

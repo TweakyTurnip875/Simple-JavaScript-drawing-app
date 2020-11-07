@@ -23,6 +23,7 @@ body {
     padding:10px;
     font-family: 'Roboto Slab', serif;
     transition:0.5s;
+
   }
   .blank:hover, .eraser:hover {
     color:#0b1c2e;
