@@ -18,11 +18,11 @@ function setup() {
   slider.position(20,40)
   slider2.position(20,70)
   slider3.position(20,98)
-
   createCanvas(window.innerWidth - 20, 920);
   background(102)
 
 }
+
 $(document).ready(function(){
 eraseToggle = 0 // will toggle between 0 and 1 to determine if erase is enabled or disabled.
 eraseDblClick = 0
@@ -33,12 +33,12 @@ $(".blank").click(function(){
 })
 $(".dblce").click(function() {
   if(eraseDblClick == 1) {
-    $(".dblce-toggle").text("disabled")
+    $(".dblce-toggle").text("enabled")
     eraseDblClick -= eraseDblClick
 // console.log(eraseDblClick)
 
   } else {
-    $(".dblce-toggle").text("enabled")
+    $(".dblce-toggle").text("disabled")
 
     eraseDblClick++
     // console.log(eraseDblClick)
@@ -47,7 +47,7 @@ $(".dblce").click(function() {
 })
 
 $(document).dblclick(function(){
-  if(eraseDblClick == 1) {
+  if(eraseDblClick == 0) {
   createCanvas(window.innerWidth - 20, 920);
   background(102)
   }
@@ -65,14 +65,15 @@ $(".eraser").click(function(){
 
 })
 })
-
 function draw() {
       // rgb color slider variables
       var r = slider.value(),
       g = slider2.value(),
       b = slider3.value()
-  fill(r,g,b) // fills rectangle with rgb slider variable values
   noStroke()
+
+      
+  fill(r,g,b) // fills rectangle with rgb slider variable values
     rect(133,0,53,39)
   
    //draw with eraser if mouse is being pressed and eraseToggle is equal to 1
