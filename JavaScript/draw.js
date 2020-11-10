@@ -25,16 +25,32 @@ function setup() {
 }
 $(document).ready(function(){
 eraseToggle = 0 // will toggle between 0 and 1 to determine if erase is enabled or disabled.
-
+eraseDblClick = 0
 //creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
 $(".blank").click(function(){
   createCanvas(window.innerWidth - 20, 920);
   background(102)
 })
+$(".dblce").click(function() {
+  if(eraseDblClick == 1) {
+    $(".dblce-toggle").text("disabled")
+    eraseDblClick -= eraseDblClick
+// console.log(eraseDblClick)
+
+  } else {
+    $(".dblce-toggle").text("enabled")
+
+    eraseDblClick++
+    // console.log(eraseDblClick)
+
+  }
+})
 
 $(document).dblclick(function(){
+  if(eraseDblClick == 1) {
   createCanvas(window.innerWidth - 20, 920);
   background(102)
+  }
 })
 //adds eraser functionality
 $(".eraser").click(function(){

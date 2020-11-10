@@ -11,9 +11,11 @@ body {
     display:flex;
     justify-content:space-between;
   background-color:#0f181f;
+  color:white;
+  font-family: 'Roboto Slab', serif;
 
   }
-  .blank, .eraser {
+  .main-wrapper button {
     outline:none;
     font-size: 15px;
     border:solid #0d5380;
@@ -23,20 +25,16 @@ body {
     padding:10px;
     font-family: 'Roboto Slab', serif;
     transition:0.5s;
-
   }
-  .blank:hover, .eraser:hover {
+  .main-wrapper button:hover {
     color:#0b1c2e;
     background-color:#569ae3;
   }
-  .default {
-    border:solid black;
-    border-radius:20px;
-    
-    font-family: 'Roboto Slab', serif;
-    font-size:20px;
-    padding-left:47px;
-  }
+  
+.dblce-toggle {
+  padding-left:40px;
+}
+
   .toggle {
     font-size:20px;
     font-family: 'Roboto Slab', serif;
@@ -82,6 +80,3 @@ body {
   canvas {
     cursor: crosshair;
   }
-.red,.green,.blue,.toggle,.width-wrap {
-  color:white;
-}
