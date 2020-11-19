@@ -5,6 +5,11 @@
 //If canvas size feels small after resizing, try pressing the new canvas button.
 
 
+obj = {
+   scrWidth: window.innerWidth,
+   height: window.innerHeight,
+   bckgColor: 102
+}
 
 function setup() {
 
@@ -19,7 +24,7 @@ function setup() {
   slider2.position(20,70)
   slider3.position(20,98)
   createCanvas(window.innerWidth - 20, 920);
-  background(102)
+  background(obj.bckgColor)
 
 }
 
@@ -29,13 +34,13 @@ eraseDblClick = 0
 //creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
 
   window.addEventListener('resize', function(){
-    createCanvas(window.innerWidth - 20, 920);
-    background(102)
+    createCanvas(obj.scrWidth - 20, 920);
+    background(obj.bckgColor)
   })
 
 
 $(".blank").click(function(){
-  createCanvas(window.innerWidth - 20, 920);
+  createCanvas(window.innerWidth, 920);
   background(102)
 })
 $(".dblce").click(function() {
@@ -87,7 +92,7 @@ function draw() {
    if(mouseIsPressed && eraseToggle == 1) {
      strokeWeight(eraserWidthSlider.value())
        stroke(102)
-       line(mouseX, mouseY, pmouseX, pmouseY);
+       line(obj.x, obj.y, pmouseX, pmouseY);
     } else if(mouseIsPressed) { // If eraseToggle != 1 but the mouse is being pressed, draw with pen
     strokeWeight(widthSlider.value())
     

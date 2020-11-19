@@ -80,11 +80,12 @@ body {
   canvas {
     cursor: crosshair;
   }
+@media (max-width: 1720px) {
+
+}
 @media (max-width: 1367px) {
   .main-wrapper {
     width:1300px;
   }
-  .color-display-wrapper {
-    padding-left:8px;
-  }
+
 }
