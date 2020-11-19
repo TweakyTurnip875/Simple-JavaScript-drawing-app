@@ -35,7 +35,7 @@ $(".dblce").click(function() {
   if(eraseDblClick == 1) {
     $(".dblce-toggle").text("enabled")
     eraseDblClick -= eraseDblClick
-// console.log(eraseDblClick)
+// console.log(eraseDblClick) 
 
   } else {
     $(".dblce-toggle").text("disabled")
