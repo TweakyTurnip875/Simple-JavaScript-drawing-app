@@ -27,6 +27,13 @@ $(document).ready(function(){
 eraseToggle = 0 // will toggle between 0 and 1 to determine if erase is enabled or disabled.
 eraseDblClick = 0
 //creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
+
+  window.addEventListener('resize', function(){
+    createCanvas(window.innerWidth - 20, 920);
+    background(102)
+  })
+
+
 $(".blank").click(function(){
   createCanvas(window.innerWidth - 20, 920);
   background(102)

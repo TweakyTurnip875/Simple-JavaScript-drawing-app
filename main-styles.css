@@ -2,9 +2,7 @@ body {
     margin:0px;
     padding:0px;
   }
-.e {
-  color:white;
-}
+
   .main-wrapper {
     padding-left:25px;
     padding-right: 28px;
@@ -26,11 +24,11 @@ body {
     color: white;
     padding:10px;
     font-family: 'Roboto Slab', serif;
-    transition:0.5s;
+    transition:0.7s;
   }
   .main-wrapper button:hover {
     color:#0b1c2e;
-    background-color:#569ae3;
+    background-color:#b0d1f5;
   }
   
 .dblce-toggle {
@@ -82,3 +80,8 @@ body {
   canvas {
     cursor: crosshair;
   }
+@media (max-width: 1367px) {
+  .main-wrapper {
+    width:1300px;
+  }
+}
