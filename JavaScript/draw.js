@@ -81,7 +81,7 @@ function draw() {
 
       
   fill(r,g,b) // fills rectangle with rgb slider variable values
-    rect(133,0,53,39)
+    rect(143,0,53,39)
   
    //draw with eraser if mouse is being pressed and eraseToggle is equal to 1
    if(mouseIsPressed && eraseToggle == 1) {

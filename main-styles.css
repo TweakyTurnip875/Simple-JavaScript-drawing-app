@@ -27,8 +27,8 @@ body {
     transition:0.7s;
   }
   .main-wrapper button:hover {
-    color:#0b1c2e;
-    background-color:#b0d1f5;
+    color:#1f4268;
+    background-color:#dbdde0;
   }
   
 .dblce-toggle {
@@ -83,5 +83,8 @@ body {
 @media (max-width: 1367px) {
   .main-wrapper {
     width:1300px;
+  }
+  .color-display-wrapper {
+    padding-left:8px;
   }
 }
