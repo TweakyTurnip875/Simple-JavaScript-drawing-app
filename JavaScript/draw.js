@@ -4,27 +4,28 @@
 
 //If canvas size feels small after resizing, try pressing the new canvas button.
 
-
 obj = {
-   scrWidth: window.innerWidth,
-   height: window.innerHeight,
-   bckgColor: 102
+  scrWidth: window.innerWidth - 20,
+  scrHeight: window.innerHeight - 20,
+  colorBgrd: 200
 }
 
 function setup() {
-
-  slider = createSlider(0, 254, 0)
-  slider2 = createSlider(0, 254, 0);
-  slider3 = createSlider(0, 254, 0);
-  widthSlider = createSlider(1, 50, 4)
-  eraserWidthSlider = createSlider(1, 100, 50)
-  eraserWidthSlider.position(220, 68)
-  widthSlider.position(220, 98)
-  slider.position(20,40)
-  slider2.position(20,70)
-  slider3.position(20,98)
-  createCanvas(window.innerWidth - 20, 920);
-  background(obj.bckgColor)
+  
+  sliders = {
+    redSlider: createSlider(0, 254, 0),
+    blueSlider: createSlider(0, 254, 0),
+    greenSlider: createSlider(0, 254, 0),
+    widthSlider: createSlider(1, 50, 4),
+    eraserWidthSlider: createSlider(1, 100, 50)
+  }
+  sliders.eraserWidthSlider.position(220, 68)
+  sliders.widthSlider.position(220, 98)
+  sliders.redSlider.position(20,40)
+  sliders.blueSlider.position(20,70)
+  sliders.greenSlider.position(20,98)
+  createCanvas(obj.scrWidth, 920);
+  background(obj.colorBgrd)
 
 }
 
@@ -34,13 +35,13 @@ eraseDblClick = 0
 //creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
 
   window.addEventListener('resize', function(){
-    createCanvas(obj.scrWidth - 20, 920);
-    background(obj.bckgColor)
+    createCanvas(window.innerWidth - 20, 920);
+    background(obj.colorBgrd)
   })
 
 
 $(".blank").click(function(){
-  createCanvas(window.innerWidth, 920);
+  createCanvas(window.innerWidth - 20, 920);
   background(102)
 })
 $(".dblce").click(function() {
@@ -61,7 +62,7 @@ $(".dblce").click(function() {
 $(document).dblclick(function(){
   if(eraseDblClick == 0) {
   createCanvas(window.innerWidth - 20, 920);
-  background(102)
+  background(obj.colorBgrd)
   }
 })
 //adds eraser functionality
@@ -78,27 +79,40 @@ $(".eraser").click(function(){
 })
 })
 function draw() {
-      // rgb color slider variables
-      var r = slider.value(),
-      g = slider2.value(),
-      b = slider3.value()
+      // rgb color slider variable values
+      var sldr = {
+      r: sliders.redSlider.value(),
+      g: sliders.blueSlider.value(),
+      b: sliders.greenSlider.value()
+      }
   noStroke()
 
-      
-  fill(r,g,b) // fills rectangle with rgb slider variable values
-    rect(143,0,53,39)
-  
+const scrCheckWidth = () => { // function that checks screen width and adjusts color display according to your screen size.
+    if(window.innerWidth >= 1367) {
+      rect(133,0,53,39)
+    } else {
+      rect(143,0,53,39)
+    }
+  }
+  fill(sldr.r,sldr.g,sldr.b) // fills rectangle with rgb slider variable values
+
+  scrCheckWidth()
+
+  window.addEventListener("resize", function(){ // calls scrCheckWidth whenever the resize event takes place.
+    scrCheckWidth()
+  })
+
+
    //draw with eraser if mouse is being pressed and eraseToggle is equal to 1
    if(mouseIsPressed && eraseToggle == 1) {
      strokeWeight(eraserWidthSlider.value())
-       stroke(102)
-       line(obj.x, obj.y, pmouseX, pmouseY);
+       stroke(obj.colorBgrd)
+       line(mouseX, mouseY, pmouseX, pmouseY);
     } else if(mouseIsPressed) { // If eraseToggle != 1 but the mouse is being pressed, draw with pen
-    strokeWeight(widthSlider.value())
+    strokeWeight(sliders.widthSlider.value())
     
-    stroke(r,g,b) // colors the pen with the rgb slider variable values
+    stroke(sldr.r,sldr.g,sldr.b) // colors the pen with the rgb slider variable values
     line(mouseX, mouseY, pmouseX, pmouseY);
 
 }
 }
-
