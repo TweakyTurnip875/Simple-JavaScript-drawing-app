@@ -1,8 +1,7 @@
 
 
+// If someone comes across this, I hope you enjoy this small drawing application I made :)
 
-
-//If canvas size feels small after resizing, try pressing the new canvas button.
 
 obj = {
   scrWidth: window.innerWidth - 20,
@@ -17,7 +16,8 @@ function setup() {
     blueSlider: createSlider(0, 254, 0),
     greenSlider: createSlider(0, 254, 0),
     widthSlider: createSlider(1, 50, 4),
-    eraserWidthSlider: createSlider(1, 100, 50)
+    eraserWidthSlider: createSlider(1, 100, 50),
+    backgroundClrSlider: createSlider(1, 255, 0)
   }
   sliders.eraserWidthSlider.position(220, 68)
   sliders.widthSlider.position(220, 98)
@@ -32,19 +32,20 @@ function setup() {
 $(document).ready(function(){
 eraseToggle = 0 // will toggle between 0 and 1 to determine if erase is enabled or disabled.
 eraseDblClick = 0
-//creates a new canvas and background (which will overide the previous canvas) when user clicks new canvas button
 
-  window.addEventListener('resize', function(){
+
+  window.addEventListener('resize', function(){ // clears canvas whenever screen is resized
     createCanvas(window.innerWidth - 20, 920);
     background(obj.colorBgrd)
   })
 
 
-$(".blank").click(function(){
+$(".blank").click(function(){ //clears canvas whenever a user clicks the new canvas button
   createCanvas(window.innerWidth - 20, 920);
   background(102)
 })
-$(".dblce").click(function() {
+
+$(".dblce").click(function() { // enable/disables double click clear functionality
   if(eraseDblClick == 1) {
     $(".dblce-toggle").text("enabled")
     eraseDblClick -= eraseDblClick
@@ -59,7 +60,7 @@ $(".dblce").click(function() {
   }
 })
 
-$(document).dblclick(function(){
+$(document).dblclick(function(){ //clears canvas when user double clicks the canvas
   if(eraseDblClick == 0) {
   createCanvas(window.innerWidth - 20, 920);
   background(obj.colorBgrd)
@@ -79,7 +80,6 @@ $(".eraser").click(function(){
 })
 })
 function draw() {
-      // rgb color slider variable values
       var sldr = {
       r: sliders.redSlider.value(),
       g: sliders.blueSlider.value(),
@@ -94,7 +94,7 @@ const scrCheckWidth = () => { // function that checks screen width and adjusts c
       rect(143,0,53,39)
     }
   }
-  fill(sldr.r,sldr.g,sldr.b) // fills rectangle with rgb slider variable values
+  fill(sldr.r,sldr.g,sldr.b)
 
   scrCheckWidth()
 
@@ -108,10 +108,10 @@ const scrCheckWidth = () => { // function that checks screen width and adjusts c
      strokeWeight(eraserWidthSlider.value())
        stroke(obj.colorBgrd)
        line(mouseX, mouseY, pmouseX, pmouseY);
-    } else if(mouseIsPressed) { // If eraseToggle != 1 but the mouse is being pressed, draw with pen
+    } else if(mouseIsPressed) {
     strokeWeight(sliders.widthSlider.value())
     
-    stroke(sldr.r,sldr.g,sldr.b) // colors the pen with the rgb slider variable values
+    stroke(sldr.r,sldr.g,sldr.b)
     line(mouseX, mouseY, pmouseX, pmouseY);
 
 }
